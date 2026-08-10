@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
 
-const CONTACT_EMAIL = "hello@smartai-hub.com"; // TODO: replace with your real contact email
+const CONTACT_EMAIL = "m.zavi842@gmail.com"; // TODO: replace with your real contact email
 
 export default function ContactPage() {
   const [name, setName] = useState("");
