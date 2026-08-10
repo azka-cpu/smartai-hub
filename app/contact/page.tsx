@@ -3,20 +3,34 @@
 import { useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
 
-const CONTACT_EMAIL = "m.zavi842@gmail.com"; // TODO: replace with your real contact email
-
 export default function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const subject = encodeURIComponent(`Message from ${name || "website"}`);
-    const body = encodeURIComponent(
-      `${message}\n\n— ${name}\n${email}`
-    );
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (!res.ok) throw new Error();
+
+      setStatus("success");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -74,13 +88,24 @@ export default function ContactPage() {
 
         <button
           type="submit"
-          className={buttonVariants({ size: "lg" }).concat(" w-full")}
+          disabled={status === "loading"}
+          className={buttonVariants({ size: "lg" }).concat(
+            " w-full disabled:opacity-60"
+          )}
         >
-          Send message
+          {status === "loading" ? "Sending..." : "Send message"}
         </button>
-        <p className="text-center text-xs text-muted-foreground">
-          This opens your email app with the message pre-filled.
-        </p>
+
+        {status === "success" && (
+          <p className="text-center text-sm text-green-600">
+            Message sent — we'll get back to you soon.
+          </p>
+        )}
+        {status === "error" && (
+          <p className="text-center text-sm text-red-600">
+            Something went wrong. Please try again.
+          </p>
+        )}
       </form>
     </main>
   );
