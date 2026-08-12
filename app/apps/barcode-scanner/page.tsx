@@ -13,7 +13,7 @@ import {
   ClipboardList,
 } from "lucide-react";
 
-const APP_URL = "https://labellens-zeta.vercel.app/";
+const START_URL = "/start/barcode-scanner";
 
 export default function BarcodeScannerPage() {
   return (
@@ -38,9 +38,7 @@ export default function BarcodeScannerPage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
-                href={APP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={START_URL}
                 className={buttonVariants({ size: "lg" }).concat(
                   " bg-rose-600 text-white hover:bg-rose-700"
                 )}
@@ -56,7 +54,7 @@ export default function BarcodeScannerPage() {
               </Link>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
-              Free to try â€” no credit card required.
+              Free to try — no credit card required.
             </p>
           </div>
 
@@ -198,7 +196,7 @@ export default function BarcodeScannerPage() {
                 <h3 className="font-medium">Free</h3>
                 <p className="mt-1 text-3xl font-semibold">$0</p>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Scan products and get AI analysis â€” no card required.
+                  Scan products and get AI analysis — no card required.
                 </p>
               </CardContent>
             </Card>
@@ -248,13 +246,11 @@ export default function BarcodeScannerPage() {
               Ready to know what&apos;s really in your groceries?
             </h2>
             <p className="mt-1 text-muted-foreground">
-              It's free to try â€” scan your first product in under a minute.
+              It's free to try — scan your first product in under a minute.
             </p>
           </div>
           <Link
-            href={APP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={START_URL}
             className={buttonVariants({ size: "lg" }).concat(
               " bg-rose-600 text-white hover:bg-rose-700"
             )}

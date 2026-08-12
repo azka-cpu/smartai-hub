@@ -14,7 +14,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 
-const APP_URL = "https://meeting-notes-bot-ui.vercel.app/";
+const START_URL = "/start/meeting-notes-bot";
 
 export default function MeetingNotesBotPage() {
   return (
@@ -37,14 +37,12 @@ export default function MeetingNotesBotPage() {
             </h1>
             <p className="mt-5 max-w-md text-lg text-muted-foreground">
               Upload audio and get a full transcript, summary, action items,
-              and key decisions â€” then ask follow-up questions in any
+              and key decisions — then ask follow-up questions in any
               language.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
-                href={APP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={START_URL}
                 className={buttonVariants({ size: "lg" }).concat(
                   " bg-indigo-600 text-white hover:bg-indigo-700"
                 )}
@@ -60,7 +58,7 @@ export default function MeetingNotesBotPage() {
               </Link>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
-              Free to try â€” no credit card required.
+              Free to try — no credit card required.
             </p>
           </div>
 
@@ -76,7 +74,8 @@ export default function MeetingNotesBotPage() {
                   talk to me in urdu
                 </div>
                 <div className="max-w-[90%] rounded-lg bg-muted px-3 py-2 text-sm">
-                  جی ضرور! میں آپ سے اردو میں بات کر سکتا ہوں۔ آپ کس بارے میں میٹنگ کے بارے میں کچھ پوچھنا چاہتے ہیں؟
+                  جی ضرور! میں آپ سے اردو میں بات کر سکتا ہوں۔ آپ کس بارے میں
+                  میٹنگ کے بارے میں کچھ پوچھنا چاہتے ہیں؟
                 </div>
                 <div className="flex items-center gap-1.5 rounded-lg border border-indigo-600/20 bg-indigo-600/5 px-3 py-2 text-xs text-indigo-700 dark:text-indigo-400">
                   <Languages className="h-3.5 w-3.5" />
@@ -95,7 +94,7 @@ export default function MeetingNotesBotPage() {
           Built for what happens after the meeting
         </h2>
         <p className="mt-2 max-w-lg text-muted-foreground">
-          Not just a transcript â€” a full breakdown of what was said, what was
+          Not just a transcript — a full breakdown of what was said, what was
           decided, and what happens next.
         </p>
 
@@ -133,7 +132,7 @@ export default function MeetingNotesBotPage() {
             <Screenshot
               src="/images/apps/meeting-notes-bot/upload-audio.png"
               alt="Uploading a meeting audio file to Meeting Notes Bot"
-              caption="Upload the audio â€” the rest happens automatically"
+              caption="Upload the audio — the rest happens automatically"
             />
             <Screenshot
               src="/images/apps/meeting-notes-bot/transcript-summary.png"
@@ -143,7 +142,7 @@ export default function MeetingNotesBotPage() {
             <Screenshot
               src="/images/apps/meeting-notes-bot/ask-question.png"
               alt="Asking a question about the meeting in Urdu"
-              caption="Ask questions about the meeting â€” in any language"
+              caption="Ask questions about the meeting — in any language"
             />
           </div>
         </div>
@@ -185,7 +184,7 @@ export default function MeetingNotesBotPage() {
                 <h3 className="font-medium">Free</h3>
                 <p className="mt-1 text-3xl font-semibold">$0</p>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Upload meetings and get notes automatically â€” no card
+                  Upload meetings and get notes automatically — no card
                   required.
                 </p>
               </CardContent>
@@ -236,14 +235,12 @@ export default function MeetingNotesBotPage() {
               Ready to stop taking meeting notes by hand?
             </h2>
             <p className="mt-1 text-muted-foreground">
-              It's free to try â€” upload your first recording in under a
+              It's free to try — upload your first recording in under a
               minute.
             </p>
           </div>
           <Link
-            href={APP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={START_URL}
             className={buttonVariants({ size: "lg" }).concat(
               " bg-indigo-600 text-white hover:bg-indigo-700"
             )}

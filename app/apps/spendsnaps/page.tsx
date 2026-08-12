@@ -13,7 +13,7 @@ import {
   ListChecks,
 } from "lucide-react";
 
-const APP_URL = "https://spendsnap.streamlit.app/";
+const START_URL = "/start/spendsnap";
 
 export default function SpendSnapPage() {
   return (
@@ -34,13 +34,11 @@ export default function SpendSnapPage() {
             </h1>
             <p className="mt-5 max-w-md text-lg text-muted-foreground">
               Upload a photo of any receipt and SpendSnap reads it, sorts it,
-              and tracks it â€” no manual entry, ever.
+              and tracks it — no manual entry, ever.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
-                href={APP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={START_URL}
                 className={buttonVariants({ size: "lg" }).concat(
                   " bg-orange-600 text-white hover:bg-orange-700"
                 )}
@@ -56,7 +54,7 @@ export default function SpendSnapPage() {
               </Link>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
-              Free to try â€” no credit card required.
+              Free to try — no credit card required.
             </p>
           </div>
 
@@ -130,7 +128,7 @@ export default function SpendSnapPage() {
             <Screenshot
               src="/images/apps/spendsnap/upload-receipt.png"
               alt="Uploading a receipt for SpendSnap to scan"
-              caption="Upload a receipt photo â€” AI reads it automatically"
+              caption="Upload a receipt photo — AI reads it automatically"
             />
             <Screenshot
               src="/images/apps/spendsnap/grocery-slips.png"
@@ -155,7 +153,7 @@ export default function SpendSnapPage() {
           <Step
             icon={<Sparkles className="h-5 w-5" />}
             title="AI reads it for you"
-            description="SpendSnap extracts every item, price, and the total in seconds â€” no typing required."
+            description="SpendSnap extracts every item, price, and the total in seconds — no typing required."
           />
           <Step
             icon={<PiggyBank className="h-5 w-5" />}
@@ -177,7 +175,7 @@ export default function SpendSnapPage() {
                 <h3 className="font-medium">Free</h3>
                 <p className="mt-1 text-3xl font-semibold">$0</p>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Upload receipts and track spending â€” no card required.
+                  Upload receipts and track spending — no card required.
                 </p>
               </CardContent>
             </Card>
@@ -227,13 +225,11 @@ export default function SpendSnapPage() {
               Ready to stop typing in receipts?
             </h2>
             <p className="mt-1 text-muted-foreground">
-              It's free to try â€” upload your first receipt in under a minute.
+              It's free to try — upload your first receipt in under a minute.
             </p>
           </div>
           <Link
-            href={APP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={START_URL}
             className={buttonVariants({ size: "lg" }).concat(
               " bg-orange-600 text-white hover:bg-orange-700"
             )}

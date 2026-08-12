@@ -14,7 +14,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const APP_URL = "https://pdf-copilot-ui-five.vercel.app/";
+const START_URL = "/start/pdf-copilot";
 
 export default function PDFCopilotPage() {
   return (
@@ -35,13 +35,11 @@ export default function PDFCopilotPage() {
             </h1>
             <p className="mt-5 max-w-md text-lg text-muted-foreground">
               Upload one PDF or ten. Ask questions in plain language and get
-              answers pulled straight from the page â€” cited, not guessed.
+              answers pulled straight from the page — cited, not guessed.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
-                href={APP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={START_URL}
                 className={buttonVariants({ size: "lg" }).concat(
                   " bg-teal-600 text-white hover:bg-teal-700"
                 )}
@@ -57,7 +55,7 @@ export default function PDFCopilotPage() {
               </Link>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
-              Free to try â€” no credit card required.
+              Free to try — no credit card required.
             </p>
           </div>
 
@@ -98,7 +96,7 @@ export default function PDFCopilotPage() {
           Built for actually reading the document
         </h2>
         <p className="mt-2 max-w-lg text-muted-foreground">
-          Not a generic chatbot with a file attached â€” every answer is
+          Not a generic chatbot with a file attached — every answer is
           grounded in what your PDFs actually say.
         </p>
 
@@ -121,7 +119,7 @@ export default function PDFCopilotPage() {
           <FeatureCard
             icon={<ShieldCheck className="h-5 w-5" />}
             title="Private by default"
-            description="Your documents are processed for your account only â€” never used to train anything."
+            description="Your documents are processed for your account only — never used to train anything."
           />
         </div>
       </section>
@@ -188,7 +186,7 @@ export default function PDFCopilotPage() {
                 <h3 className="font-medium">Free</h3>
                 <p className="mt-1 text-3xl font-semibold">$0</p>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Upload PDFs and start asking questions â€” no card required.
+                  Upload PDFs and start asking questions — no card required.
                 </p>
               </CardContent>
             </Card>
@@ -215,7 +213,7 @@ export default function PDFCopilotPage() {
         <div className="mt-8 max-w-2xl divide-y divide-border">
           <FAQ
             q="What file types does PDF Copilot support?"
-            a="PDF Copilot is built specifically for PDF documents â€” text-based and scanned."
+            a="PDF Copilot is built specifically for PDF documents — text-based and scanned."
           />
           <FAQ
             q="Can I ask questions across multiple PDFs at once?"
@@ -223,7 +221,7 @@ export default function PDFCopilotPage() {
           />
           <FAQ
             q="What happens if the answer isn't in my PDF?"
-            a="PDF Copilot tells you it couldn't find the answer in the document and offers to search the web instead â€” it never guesses."
+            a="PDF Copilot tells you it couldn't find the answer in the document and offers to search the web instead — it never guesses."
           />
           <FAQ
             q="Is my data private?"
@@ -240,13 +238,11 @@ export default function PDFCopilotPage() {
               Ready to chat with your PDFs?
             </h2>
             <p className="mt-1 text-muted-foreground">
-              It's free to try â€” upload your first PDF in under a minute.
+              It's free to try — upload your first PDF in under a minute.
             </p>
           </div>
           <Link
-            href={APP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={START_URL}
             className={buttonVariants({ size: "lg" }).concat(
               " bg-teal-600 text-white hover:bg-teal-700"
             )}

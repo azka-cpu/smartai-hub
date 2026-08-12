@@ -1,81 +1,52 @@
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import {
-  FileText,
-  Receipt,
-  Mic,
-  ScanBarcode,
-  ArrowRight,
-  Briefcase,
-  Home,
-} from "lucide-react";
+import { ArrowRight, Briefcase, Home } from "lucide-react";
+import { appsConfig } from "@/lib/apps-config";
 
-const workApps = [
-  {
-    name: "PDF Copilot",
-    tagline: "Stop re-reading contracts and reports line by line.",
-    description:
-      "Upload any PDF and ask it directly. Get answers with the page cited, so you can verify in seconds instead of searching.",
-    href: "/apps/pdf-copilot",
-    icon: FileText,
-    accent: "#0d9488",
-  },
-  {
-    name: "Meeting Notes Bot",
-    tagline: "Stop taking notes during your own meetings.",
-    description:
-      "Upload the recording. Get a transcript, summary, action items, and key decisions â€” then ask follow-up questions in any language.",
-    href: "/apps/meeting-notes-bot",
-    icon: Mic,
-    accent: "#4f46e5",
-  },
-];
+const workAppIds = ["pdf-copilot", "meeting-notes-bot"] as const;
+const lifeAppIds = ["spendsnap", "barcode-scanner"] as const;
 
-const lifeApps = [
-  {
-    name: "SpendSnap",
-    tagline: "Stop typing receipts into a spreadsheet.",
-    description:
-      "Snap a photo of any receipt. SpendSnap reads it, sorts it by store, and tracks your spending automatically.",
-    href: "/apps/spendsnap",
-    icon: Receipt,
-    accent: "#ea580c",
-  },
-  {
-    name: "Barcode Scanner",
-    tagline: "Stop guessing what's actually in your groceries.",
-    description:
-      "Scan a barcode or photograph the label. Get the nutrition facts read for you and an AI health score in seconds.",
-    href: "/apps/barcode-scanner",
-    icon: ScanBarcode,
-    accent: "#e11d48",
-  },
-];
+const taglines: Record<string, string> = {
+  "pdf-copilot": "Stop re-reading contracts and reports line by line.",
+  "meeting-notes-bot": "Stop taking notes during your own meetings.",
+  spendsnap: "Stop typing receipts into a spreadsheet.",
+  "barcode-scanner": "Stop guessing what's actually in your groceries.",
+};
 
-function AppRow({
-  app,
-}: {
-  app: (typeof workApps)[number] | (typeof lifeApps)[number];
-}) {
+const descriptions: Record<string, string> = {
+  "pdf-copilot":
+    "Upload any PDF and ask it directly. Get answers with the page cited, so you can verify in seconds instead of searching.",
+  "meeting-notes-bot":
+    "Upload the recording. Get a transcript, summary, action items, and key decisions — then ask follow-up questions in any language.",
+  spendsnap:
+    "Snap a photo of any receipt. SpendSnap reads it, sorts it by store, and tracks your spending automatically.",
+  "barcode-scanner":
+    "Scan a barcode or photograph the label. Get the nutrition facts read for you and an AI health score in seconds.",
+};
+
+function AppRow({ id }: { id: keyof typeof appsConfig }) {
+  const app = appsConfig[id];
+  const Icon = app.icon;
+
   return (
     <div className="flex flex-col gap-6 border-b border-border py-10 sm:flex-row sm:items-center last:border-b-0">
       <div
         className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg"
         style={{ backgroundColor: `${app.accent}1a`, color: app.accent }}
       >
-        <app.icon className="h-6 w-6" />
+        <Icon className="h-6 w-6" />
       </div>
       <div className="flex-1">
         <h3 className="text-lg font-medium">{app.name}</h3>
         <p className="mt-1 font-medium" style={{ color: app.accent }}>
-          {app.tagline}
+          {taglines[id]}
         </p>
         <p className="mt-2 max-w-xl text-sm text-muted-foreground">
-          {app.description}
+          {descriptions[id]}
         </p>
       </div>
       <Link
-        href={app.href}
+        href={`/start/${id}`}
         className={buttonVariants({ variant: "outline" }).concat(
           " shrink-0"
         )}
@@ -116,8 +87,8 @@ export default function SolutionsPage() {
           without you doing the reading or writing yourself.
         </p>
         <div className="mt-4">
-          {workApps.map((app) => (
-            <AppRow key={app.name} app={app} />
+          {workAppIds.map((id) => (
+            <AppRow key={id} id={id} />
           ))}
         </div>
       </section>
@@ -136,8 +107,8 @@ export default function SolutionsPage() {
             you informed without extra effort.
           </p>
           <div className="mt-4">
-            {lifeApps.map((app) => (
-              <AppRow key={app.name} app={app} />
+            {lifeAppIds.map((id) => (
+              <AppRow key={id} id={id} />
             ))}
           </div>
         </div>
@@ -151,10 +122,10 @@ export default function SolutionsPage() {
               Not sure which one you need?
             </h2>
             <p className="mt-1 text-muted-foreground">
-              They're all free to try â€” see which one fits your day.
+              They're all free to try — see which one fits your day.
             </p>
           </div>
-          <Link href="/#apps" className={buttonVariants({ size: "lg" })}>
+          <Link href="/apps" className={buttonVariants({ size: "lg" })}>
             See all apps
             <ArrowRight className="ml-1 h-4 w-4" />
           </Link>
