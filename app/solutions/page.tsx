@@ -3,12 +3,13 @@ import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight, Briefcase, Home } from "lucide-react";
 import { appsConfig } from "@/lib/apps-config";
 
-const workAppIds = ["pdf-copilot", "meeting-notes-bot"] as const;
+const workAppIds = ["pdf-copilot", "meeting-notes-bot", "meetmate-ai"] as const;
 const lifeAppIds = ["spendsnap", "barcode-scanner"] as const;
 
 const taglines: Record<string, string> = {
   "pdf-copilot": "Stop re-reading contracts and reports line by line.",
   "meeting-notes-bot": "Stop taking notes during your own meetings.",
+  "meetmate-ai": "Stop scrambling to write up notes after every call.",
   spendsnap: "Stop typing receipts into a spreadsheet.",
   "barcode-scanner": "Stop guessing what's actually in your groceries.",
 };
@@ -18,6 +19,8 @@ const descriptions: Record<string, string> = {
     "Upload any PDF and ask it directly. Get answers with the page cited, so you can verify in seconds instead of searching.",
   "meeting-notes-bot":
     "Upload the recording. Get a transcript, summary, action items, and key decisions — then ask follow-up questions in any language.",
+  "meetmate-ai":
+    "Join the call live, see real-time captions as you talk, and get an AI summary the moment the meeting ends.",
   spendsnap:
     "Snap a photo of any receipt. SpendSnap reads it, sorts it by store, and tracks your spending automatically.",
   "barcode-scanner":

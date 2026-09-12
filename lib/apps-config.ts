@@ -1,4 +1,4 @@
-import { FileText, Receipt, Mic, ScanBarcode } from "lucide-react";
+import { FileText, Receipt, Mic, ScanBarcode, Video } from "lucide-react";
 
 export const appsConfig = {
   "pdf-copilot": {
@@ -28,6 +28,13 @@ export const appsConfig = {
     icon: ScanBarcode,
     accent: "#e11d48",
     externalUrl: "https://labellens-zeta.vercel.app/",
+  },
+  "meetmate-ai": {
+    name: "MeetMate AI",
+    tagline: "Live video meetings with real-time captions.",
+    icon: Video,
+    accent: "#7c3aed",
+    externalUrl: "https://ai-meeting-assistant-azkacpu.vercel.app/",
   },
 } as const;
 
